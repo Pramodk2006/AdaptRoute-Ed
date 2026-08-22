@@ -1,0 +1,2 @@
+comparison,mean_difference_ms,t_statistic,p_value,cohens_d,significant_alpha_05
+AlwaysStrongest_vs_AdaptRoute_Latency,3022.792716672282,4.680946340951356,2.85553680456907e-06,0.7801577234918926,True

@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Variables ─────────────────────────────────────────────────────────── */
+:root {
+  --font-inter: "Inter", system-ui, sans-serif;
+  --font-outfit: "Outfit", system-ui, sans-serif;
+  --accent: #6366f1;
+}
+
+/* ── Base Styles ───────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: #ffffff;
+  color: #000000;
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Headings — pure black, bold ───────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  color: #000000;
+  font-weight: 700;
+}
+
+/* ── Body text — near-black for readability ────────────────────────────────── */
+p, span, li, label, td, th {
+  color: #111111;
+}
+
+/* ── Links ─────────────────────────────────────────────────────────────────── */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #f4f4f5; }
+::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
+
+/* ── Component Utilities ────────────────────────────────────────────────────── */
+@layer components {
+
+  /* Clean white card — replaces glassmorphism */
+  .glass {
+    @apply bg-white border border-zinc-200 rounded-2xl shadow-card;
+  }
+  .glass-sm {
+    @apply bg-white border border-zinc-200 rounded-xl shadow-card;
+  }
+
+  /* Accent gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 to-primary-500
+           bg-clip-text text-transparent;
+  }
+
+  /* Page wrapper — clean white background */
+  .gradient-bg {
+    background: #ffffff;
+  }
+
+  /* Input base — crisp, high-contrast */
+  .input-base {
+    @apply w-full px-4 py-3 rounded-xl
+           bg-white border border-zinc-200
+           text-black placeholder-zinc-400
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+           transition duration-200;
+  }
+
+  /* Card lift on hover */
+  .card-hover {
+    @apply transition-all duration-200 hover:-translate-y-0.5 hover:shadow-card-md;
+  }
+}
+
+/* ── Selection ─────────────────────────────────────────────────────────────── */
+::selection {
+  background: #6366f1;
+  color: white;
+}

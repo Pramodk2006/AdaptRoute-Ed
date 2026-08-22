@@ -1,0 +1,379 @@
+[
+  {
+    "category": "easy",
+    "task_type": "explanation",
+    "prompt_preview": "What is a variable in programming?",
+    "skill_level": "beginner",
+    "expected_tier": "lightweight",
+    "selected_model": "gemma3:latest",
+    "selected_tier": "standard",
+    "candidates_count": 2,
+    "candidates": [
+      "gemma3:latest",
+      "gemma3:1b"
+    ],
+    "routing_policy": "heuristic",
+    "complexity": 0.45,
+    "reasoning": 0.55,
+    "coding": 0.0,
+    "knowledge": 0.8,
+    "output_length": 0.4,
+    "quality_score": 0.7288,
+    "quality_notes": [
+      "Response length 127 below expected minimum 200."
+    ],
+    "tier_correct": false
+  },
+  {
+    "category": "easy",
+    "task_type": "explanation",
+    "prompt_preview": "Define recursion in simple terms.",
+    "skill_level": "beginner",
+    "expected_tier": "lightweight",
+    "selected_model": "gemma3:latest",
+    "selected_tier": "standard",
+    "candidates_count": 2,
+    "candidates": [
+      "gemma3:latest",
+      "gemma3:1b"
+    ],
+    "routing_policy": "heuristic",
+    "complexity": 0.45,
+    "reasoning": 0.55,
+    "coding": 0.0,
+    "knowledge": 0.8,
+    "output_length": 0.4,
+    "quality_score": 0.759,
+    "quality_notes": [
+      "Response length 180 below expected minimum 200."
+    ],
+    "tier_correct": false
+  },
+  {
+    "category": "easy",
+    "task_type": "explanation",
+    "prompt_preview": "What is a loop and why do we use it?",
+    "skill_level": "beginner",
+    "expected_tier": "lightweight",
+    "selected_model": "gemma3:latest",
+    "selected_tier": "standard",
+    "candidates_count": 2,
+    "candidates": [
+      "gemma3:latest",
+      "gemma3:1b"
+    ],
+    "routing_policy": "heuristic",
+    "complexity": 0.45,
+    "reasoning": 0.55,
+    "coding": 0.0,
+    "knowledge": 0.8,
+    "output_length": 0.4,
+    "quality_score": 0.899,
+    "quality_notes": [
+      "Response length 180 below expected minimum 200."
+    ],
+    "tier_correct": false
+  },
+  {
+    "category": "easy",
+    "task_type": "quiz",
+    "prompt_preview": "Generate a 3-question multiple choice quiz on Python variabl...",
+    "skill_level": "beginner",
+    "expected_tier": "standard",
+    "selected_model": "gemma3:latest",
+    "selected_tier": "standard",
+    "candidates_count": 1,
+    "candidates": [
+      "gemma3:latest"
+    ],
+    "routing_policy": "heuristic",
+    "complexity": 0.6,
+    "reasoning": 0.65,
+    "coding": 0.1,
+    "knowledge": 0.85,
+    "output_length": 0.5,
+    "quality_score": 0.29,
+    "quality_notes": [
+      "Response shorter than half the expected minimum length.",
+      "Response length 180 below expected minimum 400.",
+      "Required JSON not found in response."
+    ],
+    "tier_correct": true
+  },
+  {
+    "category": "medium",
+    "task_type": "explanation",
+    "prompt_preview": "Explain the difference between stack and heap memory with ex...",
+    "skill_level": "intermediate",
+    "expected_tier": "standard",
+    "selected_model": "gemma3:latest",
+    "selected_tier": "standard",
+    "candidates_count": 2,
+    "candidates": [
+      "gemma3:latest",
+      "gemma3:1b"
+    ],
+    "routing_policy": "heuristic",
+    "complexity": 0.45,
+    "reasoning": 0.6200000000000001,
+    "coding": 0.0,
+    "knowledge": 0.8700000000000001,
+    "output_length": 0.4,
+    "quality_score": 0.759,
+    "quality_notes": [
+      "Response length 180 below expected minimum 200."
+    ],
+    "tier_correct": true
+  },
+  {
+    "category": "medium",
+    "task_type": "explanation",
+    "prompt_preview": "Compare merge sort and quicksort: time complexity, space com...",
+    "skill_level": "intermediate",
+    "expected_tier": "standard",
+    "selected_model": "gemma3:latest",
+    "selected_tier": "standard",
+    "candidates_count": 2,
+    "candidates": [
+      "gemma3:latest",
+      "gemma3:1b"
+    ],
+    "routing_policy": "heuristic",
+    "complexity": 0.45,
+    "reasoning": 0.6200000000000001,
+    "coding": 0.0,
+    "knowledge": 0.8700000000000001,
+    "output_length": 0.4,
+    "quality_score": 0.759,
+    "quality_notes": [
+      "Response length 180 below expected minimum 200."
+    ],
+    "tier_correct": true
+  },
+  {
+    "category": "medium",
+    "task_type": "socratic",
+    "prompt_preview": "Guide me to understand why linked lists use dynamic memory a...",
+    "skill_level": "intermediate",
+    "expected_tier": "standard",
+    "selected_model": "gemma3:latest",
+    "selected_tier": "standard",
+    "candidates_count": 2,
+    "candidates": [
+      "gemma3:latest",
+      "gemma3:1b"
+    ],
+    "routing_policy": "heuristic",
+    "complexity": 0.5,
+    "reasoning": 0.77,
+    "coding": 0.1,
+    "knowledge": 0.8200000000000001,
+    "output_length": 0.25,
+    "quality_score": 0.684,
+    "quality_notes": [],
+    "tier_correct": true
+  },
+  {
+    "category": "medium",
+    "task_type": "code_example",
+    "prompt_preview": "Write a Python function implementing binary search with clea...",
+    "skill_level": "intermediate",
+    "expected_tier": "heavy",
+    "selected_model": "gemma3:latest",
+    "selected_tier": "standard",
+    "candidates_count": 1,
+    "candidates": [
+      "gemma3:latest"
+    ],
+    "routing_policy": "heuristic",
+    "complexity": 0.75,
+    "reasoning": 0.77,
+    "coding": 1.0,
+    "knowledge": 0.8200000000000001,
+    "output_length": 0.7,
+    "quality_score": 0.47,
+    "quality_notes": [
+      "Response length 180 below expected minimum 300.",
+      "Required code block not found."
+    ],
+    "tier_correct": false
+  },
+  {
+    "category": "medium",
+    "task_type": "code_example",
+    "prompt_preview": "Implement a stack data structure in C with push, pop, and pe...",
+    "skill_level": "intermediate",
+    "expected_tier": "heavy",
+    "selected_model": "gemma3:latest",
+    "selected_tier": "standard",
+    "candidates_count": 1,
+    "candidates": [
+      "gemma3:latest"
+    ],
+    "routing_policy": "heuristic",
+    "complexity": 0.75,
+    "reasoning": 0.77,
+    "coding": 1.0,
+    "knowledge": 0.8200000000000001,
+    "output_length": 0.7,
+    "quality_score": 0.47,
+    "quality_notes": [
+      "Response length 180 below expected minimum 300.",
+      "Required code block not found."
+    ],
+    "tier_correct": false
+  },
+  {
+    "category": "medium",
+    "task_type": "quiz",
+    "prompt_preview": "Generate 5 multiple choice questions on object-oriented prog...",
+    "skill_level": "intermediate",
+    "expected_tier": "standard",
+    "selected_model": "gemma3:latest",
+    "selected_tier": "standard",
+    "candidates_count": 1,
+    "candidates": [
+      "gemma3:latest"
+    ],
+    "routing_policy": "heuristic",
+    "complexity": 0.6,
+    "reasoning": 0.72,
+    "coding": 0.1,
+    "knowledge": 0.9199999999999999,
+    "output_length": 0.5,
+    "quality_score": 0.29,
+    "quality_notes": [
+      "Response shorter than half the expected minimum length.",
+      "Response length 180 below expected minimum 400.",
+      "Required JSON not found in response."
+    ],
+    "tier_correct": true
+  },
+  {
+    "category": "hard",
+    "task_type": "roadmap",
+    "prompt_preview": "Generate a complete 8-week learning roadmap for mastering Py...",
+    "skill_level": "beginner",
+    "expected_tier": "standard",
+    "selected_model": "gemma3:latest",
+    "selected_tier": "standard",
+    "candidates_count": 1,
+    "candidates": [
+      "gemma3:latest"
+    ],
+    "routing_policy": "heuristic",
+    "complexity": 0.8,
+    "reasoning": 0.75,
+    "coding": 0.2,
+    "knowledge": 0.9,
+    "output_length": 0.95,
+    "quality_score": 0.2963,
+    "quality_notes": [
+      "Response shorter than half the expected minimum length.",
+      "Response length 180 below expected minimum 800.",
+      "Required JSON not found in response."
+    ],
+    "tier_correct": true
+  },
+  {
+    "category": "hard",
+    "task_type": "roadmap",
+    "prompt_preview": "Create a comprehensive 10-week Java OOP course roadmap with ...",
+    "skill_level": "intermediate",
+    "expected_tier": "heavy",
+    "selected_model": "gemma3:latest",
+    "selected_tier": "standard",
+    "candidates_count": 1,
+    "candidates": [
+      "gemma3:latest"
+    ],
+    "routing_policy": "heuristic",
+    "complexity": 0.8,
+    "reasoning": 0.8200000000000001,
+    "coding": 0.0,
+    "knowledge": 0.97,
+    "output_length": 0.95,
+    "quality_score": 0.2963,
+    "quality_notes": [
+      "Response shorter than half the expected minimum length.",
+      "Response length 180 below expected minimum 800.",
+      "Required JSON not found in response."
+    ],
+    "tier_correct": false
+  },
+  {
+    "category": "hard",
+    "task_type": "explanation",
+    "prompt_preview": "Write a 2,000 word educational article on operating system s...",
+    "skill_level": "advanced",
+    "expected_tier": "heavy",
+    "selected_model": "gemma3:latest",
+    "selected_tier": "standard",
+    "candidates_count": 2,
+    "candidates": [
+      "gemma3:latest",
+      "gemma3:1b"
+    ],
+    "routing_policy": "heuristic",
+    "complexity": 0.45,
+    "reasoning": 0.7000000000000001,
+    "coding": 0.2,
+    "knowledge": 0.9500000000000001,
+    "output_length": 0.4,
+    "quality_score": 0.759,
+    "quality_notes": [
+      "Response length 180 below expected minimum 200."
+    ],
+    "tier_correct": false
+  },
+  {
+    "category": "hard",
+    "task_type": "code_example",
+    "prompt_preview": "Implement a thread-safe LRU cache in Python using OrderedDic...",
+    "skill_level": "advanced",
+    "expected_tier": "heavy",
+    "selected_model": "gemma3:latest",
+    "selected_tier": "standard",
+    "candidates_count": 1,
+    "candidates": [
+      "gemma3:latest"
+    ],
+    "routing_policy": "heuristic",
+    "complexity": 0.75,
+    "reasoning": 0.85,
+    "coding": 1.0,
+    "knowledge": 0.9,
+    "output_length": 0.7,
+    "quality_score": 0.47,
+    "quality_notes": [
+      "Response length 180 below expected minimum 300.",
+      "Required code block not found."
+    ],
+    "tier_correct": false
+  },
+  {
+    "category": "hard",
+    "task_type": "explanation",
+    "prompt_preview": "Explain distributed consensus algorithms: Paxos, Raft, and Z...",
+    "skill_level": "advanced",
+    "expected_tier": "heavy",
+    "selected_model": "gemma3:latest",
+    "selected_tier": "standard",
+    "candidates_count": 2,
+    "candidates": [
+      "gemma3:latest",
+      "gemma3:1b"
+    ],
+    "routing_policy": "heuristic",
+    "complexity": 0.45,
+    "reasoning": 0.7000000000000001,
+    "coding": 0.2,
+    "knowledge": 0.9500000000000001,
+    "output_length": 0.4,
+    "quality_score": 0.759,
+    "quality_notes": [
+      "Response length 180 below expected minimum 200."
+    ],
+    "tier_correct": false
+  }
+]
