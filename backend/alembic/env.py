@@ -22,7 +22,8 @@ settings = get_settings()
 config = context.config
 
 # Set the SQLAlchemy URL from our app settings (overrides blank alembic.ini value)
-config.set_main_option("sqlalchemy.url", settings.DATABASE_URL)
+# Escape '%' as '%%' to prevent configparser from failing on URL-encoded passwords (e.g. %40)
+config.set_main_option("sqlalchemy.url", str(settings.DATABASE_URL).replace("%", "%%"))
 
 # Set up Python logging from alembic.ini
 if config.config_file_name is not None:
