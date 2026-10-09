@@ -5,7 +5,7 @@ from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, Optional
 
 from jose import JWTError, jwt
-from passlib.context import CryptContext
+import bcrypt
 
 from app.config import get_settings
 from app.utils.logger import logger
@@ -13,17 +13,21 @@ from app.utils.logger import logger
 settings = get_settings()
 
 # ── Password Hashing ───────────────────────────────────────────────────────────
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
-
 def hash_password(plain_password: str) -> str:
     """Return a bcrypt hash of the given plain-text password."""
-    return pwd_context.hash(plain_password)
+    password_bytes = plain_password.encode("utf-8")[:72]
+    salt = bcrypt.gensalt()
+    return bcrypt.hashpw(password_bytes, salt).decode("utf-8")
 
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     """Verify a plain-text password against its hash."""
-    return pwd_context.verify(plain_password, hashed_password)
+    try:
+        password_bytes = plain_password.encode("utf-8")[:72]
+        return bcrypt.checkpw(password_bytes, hashed_password.encode("utf-8"))
+    except Exception as exc:
+        logger.warning(f"Password verification failed with error: {exc}")
+        return False
 
 
 # ── JWT Token Helpers ──────────────────────────────────────────────────────────
