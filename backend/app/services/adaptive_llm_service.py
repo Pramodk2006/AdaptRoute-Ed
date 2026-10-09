@@ -72,6 +72,8 @@ class AdaptiveLLMService:
         attempts = 0
         escalation_triggered = False
         escalation_model = None
+        response: Optional[LLMResponse] = None
+        quality_score = 0.0
         
         # ── Step 3: Generation & Escalation Loop ──────────────────────────────
         while True:
@@ -148,6 +150,11 @@ class AdaptiveLLMService:
             attempts += 1
 
         total_latency_ms = (time.perf_counter() - start_time) * 1000
+
+        if response is None:
+            from app.llm.ollama_provider import OllamaProvider
+            fallback_provider = OllamaProvider(model=selected_model)
+            response = await fallback_provider.generate(prompt)
 
         # ── Step 5: Reward calculation ────────────────────────────────────────
         # Reward is based on the initial model's performance to guide bandit learning

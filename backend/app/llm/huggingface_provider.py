@@ -56,37 +56,43 @@ class HuggingFaceProvider(LLMProvider):
             )
 
     async def generate(self, prompt: str, **kwargs) -> LLMResponse:
-        if self._pipeline is None:
-            self._pipeline = self._load_pipeline()
+        try:
+            if self._pipeline is None:
+                self._pipeline = self._load_pipeline()
 
-        max_tokens = kwargs.get("max_tokens", settings.LLM_MAX_TOKENS)
-        temperature = kwargs.get("temperature", settings.LLM_TEMPERATURE)
+            max_tokens = kwargs.get("max_tokens", settings.LLM_MAX_TOKENS)
+            temperature = kwargs.get("temperature", settings.LLM_TEMPERATURE)
 
-        logger.debug(f"HuggingFace request | model={self._model_id}")
-        start = time.perf_counter()
+            logger.debug(f"HuggingFace request | model={self._model_id}")
+            start = time.perf_counter()
 
-        # HuggingFace pipeline is synchronous — wrap in executor for async contexts
-        import asyncio
+            # HuggingFace pipeline is synchronous — wrap in executor for async contexts
+            import asyncio
 
-        loop = asyncio.get_event_loop()
-        result = await loop.run_in_executor(
-            None,
-            lambda: self._pipeline(
-                prompt,
-                max_new_tokens=max_tokens,
-                temperature=temperature,
-                do_sample=True,
-                return_full_text=False,
-            ),
-        )
+            loop = asyncio.get_event_loop()
+            result = await loop.run_in_executor(
+                None,
+                lambda: self._pipeline(
+                    prompt,
+                    max_new_tokens=max_tokens,
+                    temperature=temperature,
+                    do_sample=True,
+                    return_full_text=False,
+                ),
+            )
 
-        latency_ms = (time.perf_counter() - start) * 1000
-        generated_text: str = result[0]["generated_text"] if result else ""
+            latency_ms = (time.perf_counter() - start) * 1000
+            generated_text: str = result[0]["generated_text"] if result else ""
 
-        logger.info(f"HuggingFace response | latency={latency_ms:.0f}ms")
+            logger.info(f"HuggingFace response | latency={latency_ms:.0f}ms")
 
-        return LLMResponse(
-            text=generated_text.strip(),
-            model=self.model_name,
-            latency_ms=latency_ms,
-        )
+            return LLMResponse(
+                text=generated_text.strip(),
+                model=self.model_name,
+                latency_ms=latency_ms,
+            )
+        except Exception as e:
+            logger.warning(f"HuggingFace provider unavailable ({e}). Falling back to safe response.")
+            from app.llm.ollama_provider import OllamaProvider
+            fallback_provider = OllamaProvider(model=self._model_id)
+            return await fallback_provider.generate(prompt, **kwargs)
