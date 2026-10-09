@@ -6,7 +6,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { BookOpen, FileText, Lightbulb, Code2, ClipboardCheck, ArrowLeft, CheckCircle2, Sparkles } from "lucide-react";
 import Link from "next/link";
-import api from "@/lib/api";
+import api, { API_BASE_URL } from "@/lib/api";
 import { TopicContentResponse, Content } from "@/lib/types";
 import { Button } from "@/components/ui/Button";
 import { Card, CardHeader, CardTitle } from "@/components/ui/Card";
@@ -103,7 +103,7 @@ export default function TopicPage() {
 
     try {
       const token = typeof window !== "undefined" ? localStorage.getItem("access_token") : null;
-      const response = await fetch(`http://localhost:8000/api/v1/content/generate/stream/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/content/generate/stream/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -145,6 +145,7 @@ export default function TopicPage() {
     if (!isLoading && data && data.contents.length === 0 && !isStreamingContent && !streamContentText) {
       handleGenerateStream();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, isLoading]);
 
   const generateMutation = useMutation({

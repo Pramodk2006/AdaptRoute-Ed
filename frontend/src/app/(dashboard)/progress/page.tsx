@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Brain, TrendingUp, AlertTriangle, CheckCircle, Target, BookOpen } from "lucide-react";
 import api from "@/lib/api";
-import { MasteryStats, TopicMasteryDetail, MasteryLevel } from "@/lib/types";
+import { MasteryStats, MasteryLevel } from "@/lib/types";
 import { Card, CardHeader, CardTitle } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Spinner } from "@/components/ui/Spinner";

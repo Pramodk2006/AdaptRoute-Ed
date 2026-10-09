@@ -1,28 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, Send, Sparkles, User, Bot, Lightbulb } from "lucide-react";
-import api from "@/lib/api";
+import { API_BASE_URL } from "@/lib/api";
 import { Button } from "@/components/ui/Button";
-import { Card, CardHeader, CardTitle } from "@/components/ui/Card";
+import { Card } from "@/components/ui/Card";
 
 interface ChatMessage {
   role: "user" | "assistant";
   content: string;
 }
 
-interface SocraticResponse {
-  reply: string;
-  curriculum_directive?: string | null;
-  orchestrated_by: string;
-}
-
 export function SocraticChat({ topicTitle }: { topicTitle: string }) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
-  const [lastDirective, setLastDirective] = useState<string | null>(null);
+  const [lastDirective] = useState<string | null>(null);
   const [isStreaming, setIsStreaming] = useState(false);
 
   const handleSend = async (e: React.FormEvent) => {
@@ -41,7 +34,7 @@ export function SocraticChat({ topicTitle }: { topicTitle: string }) {
 
     try {
       const token = typeof window !== "undefined" ? localStorage.getItem("access_token") : null;
-      const response = await fetch("http://localhost:8000/api/v1/socratic/chat/stream", {
+      const response = await fetch(`${API_BASE_URL}/socratic/chat/stream`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
